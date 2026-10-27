@@ -221,15 +221,25 @@
 
   function afficher() {
     const total = LISTE.length;
-    panneau.innerHTML = `
-      <b>Blockfacho</b> — ${Math.min(etat.idx, total)} / ${total}<br>
-      Bloqués : ${etat.ok} · Déjà : ${etat.deja} · Échecs : ${etat.echec}<br>
-      Session : ${etat.session} / ${MAX_PAR_SESSION} · ${etat.actif ? '▶ en cours' : '⏸ en pause'}
-      <div style="margin:6px 0;display:flex;gap:6px">
-        <button data-a="go">${etat.actif ? 'Pause' : 'Démarrer'}</button>
-        <button data-a="raz">Recommencer</button>
-      </div>
-      <div style="opacity:.75;max-height:110px;overflow:auto">${etat.journal.join('<br>')}</div>`;
+    // Construit en textContent : l'état vient du localStorage de x.com, on ne l'interprète jamais comme du HTML
+    const n = (v) => (Number.isInteger(v) ? v : 0);
+    const ligne = (txt) => { const d = document.createElement('div'); d.textContent = txt; return d; };
+    const bouton = (txt, a) => { const b = document.createElement('button'); b.textContent = txt; b.dataset.a = a; return b; };
+    const titre = ligne(`OnBloque — ${Math.min(n(etat.idx), total)} / ${total}`);
+    titre.style.fontWeight = 'bold';
+    const boutons = document.createElement('div');
+    boutons.style.cssText = 'margin:6px 0;display:flex;gap:6px';
+    boutons.append(bouton(etat.actif ? 'Pause' : 'Démarrer', 'go'), bouton('Recommencer', 'raz'));
+    const journal = document.createElement('div');
+    journal.style.cssText = 'opacity:.75;max-height:110px;overflow:auto';
+    (Array.isArray(etat.journal) ? etat.journal : []).forEach((l) => journal.append(ligne(String(l).slice(0, 200))));
+    panneau.replaceChildren(
+      titre,
+      ligne(`Bloqués : ${n(etat.ok)} · Déjà : ${n(etat.deja)} · Échecs : ${n(etat.echec)}`),
+      ligne(`Session : ${n(etat.session)} / ${MAX_PAR_SESSION} · ${etat.actif ? '▶ en cours' : '⏸ en pause'}`),
+      boutons,
+      journal
+    );
     panneau.querySelector('[data-a="go"]').onclick = () => {
       etat.actif = !etat.actif;
       if (etat.actif) etat.session = 0;
