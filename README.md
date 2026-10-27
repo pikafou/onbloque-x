@@ -2,6 +2,8 @@
 
 Extension Chrome/Edge qui bloque un par un, sur X, les comptes de la liste vérifiée de blockfacho (177 comptes, liste du 27/10/2026).
 
+![L'extension en action sur X : panneau de progression en bas à gauche, compte bloqué](docs/capture.webp)
+
 ## Installation
 
 1. Ouvrir `chrome://extensions` (ou `edge://extensions`).
