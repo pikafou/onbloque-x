@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "OnBloque X",
+  "version": "1.0",
+  "description": "Bloque automatiquement, un par un, les comptes de la liste vérifiée blockfacho sur X.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://x.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "OnBloque : démarrer le blocage" },
+  "content_scripts": [
+    { "matches": ["https://x.com/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ]
+}
