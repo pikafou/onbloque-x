@@ -4,6 +4,19 @@ Extension Chrome/Edge qui bloque un par un, sur X, les comptes de la liste véri
 
 ![L'extension en action sur X : panneau de progression en bas à gauche, compte bloqué](docs/capture.webp)
 
+## Pourquoi bloquer ?
+
+L'extension s'inscrit dans la campagne **#OnBloqueLExtremeDroite**, lancée en France fin octobre 2026 et inspirée d'une mobilisation née au Brésil. L'idée :
+
+- **Ne plus nourrir la provocation.** Répondre, citer ou s'indigner sous un post, c'est de l'engagement : l'algorithme le montre alors à encore plus de monde. Bloquer, c'est cesser de leur apporter cette visibilité.
+- **Reprendre la main sur son fil.** Un compte bloqué n'apparaît plus dans vos recommandations, vos réponses ni vos mentions. Vous choisissez ce que vous lisez, au lieu de laisser l'algorithme décider.
+- **Peser collectivement.** Un blocage isolé ne change rien, des milliers de blocages réduisent l'audience que la plateforme accorde à ces comptes. C'est l'effet recherché par la campagne, sans que personne ne puisse le mesurer précisément de l'extérieur.
+- **Se protéger.** Un compte bloqué ne peut plus vous suivre, vous mentionner ni répondre à vos posts.
+
+Bloquer ne supprime aucun compte et ne signale personne : c'est un choix personnel sur ce qui s'affiche chez vous, réversible à tout moment depuis le profil (bouton **Bloqué** → Débloquer) ou dans les réglages de X.
+
+La liste vient de [blockfacho](https://blockfacho.readymoss8.chatgpt.site/site) : élus et partis d'extrême droite, groupes, militants et médias, chaque entrée avec une source. Libre à chacun d'en retirer des comptes avant de lancer l'extension (voir Réglages).
+
 ## Installation
 
 1. Ouvrir `chrome://extensions` (ou `edge://extensions`).
